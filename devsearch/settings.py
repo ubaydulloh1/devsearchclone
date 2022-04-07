@@ -133,9 +133,9 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd3i1s27vuo76ig',
-        "USER": 'kxkyhwdjtsozgu',
-        'PASSWORD': "bf755d5ab984389614f50b3fcd39606dadfd86f76fee17e0c63ef9238a87e2b0",
+        'NAME': 'dfg9jqu3gkr4ei',
+        "USER": 'maonwplohrfnqd',
+        'PASSWORD': "bd6763dc1b287730b1e82074663028c80fbb5a0c9679e7c1b1e75c092bd2a433",
         'HOST': 'ec2-52-73-155-171.compute-1.amazonaws.com',
         'PORT': 5432,
     }
