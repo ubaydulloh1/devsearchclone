@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="mt-6">
+      <div class="has-background-light column is-6 is-offset-3 px-6 pb-6 pt-5">
+        <a href="projects_list.html" class="is-underlined">Back</a>
+        <div class="mb-5"></div>
+        <form class="form" id="login--form">
+          <label for="username-login" class="label form-control is-medium">
+            Username
+          </label>
+          <input
+            type="text"
+            name="username"
+            id="username-login"
+            class="input is-primary is-medium form-control mb-5"
+            placeholder="Enter Username"
+          />
+          <label for="password-login" class="label form-control is-medium">
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password-login"
+            class="input is-primary is-medium form-control mb-5"
+            placeholder="Enter Password"
+          />
+          <input
+            type="submit"
+            value="Login"
+            class="button is-primary input is-medium form-control"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+
+  <script src="login.js"></script>
+</html>

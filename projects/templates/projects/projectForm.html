@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <a class="backButton" href="{{ request.GET.next }}"><i class="im im-angle-left"></i></a>
+            <br>
+
+            <form class="form" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                
+                {% for field in form %}
+                <!-- Input:Text -->
+                <div class="form__field">
+                    <label for="formInput#text">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+                {% endfor %}
+
+                <div class="form__field">
+                    <label for="formInput#text">Tags</label>
+                    <div class="form__field">
+                        {% for tag in project.tags.all %}
+                        <span class="project__tags__span tag tag--pill tag--main">
+                            <small>{{ tag }} <span class="project__tag__cancel" data-tag="{{ tag.id }}" data-project="{{ project.id }}">✕</span> </small>
+                          </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="project__tags__textarea form__field">
+                    <textarea class="input" name="tags" placeholder="Enter Tags..."></textarea>
+                </div>
+
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+</main>
+
+<script>
+    let tags_up = document.getElementsByClassName("project__tags__span")
+    let tags_up_cancel = document.getElementsByClassName("project__tag__cancel")
+    
+    for (let i = 0; i < tags_up.length; i++) {
+        tags_up_cancel[i].addEventListener('click', (e)=>{
+            tagId = e.target.dataset.tag
+            projectId = e.target.dataset.project
+            
+            fetch("http://localhost:8000/api/remove-tag/", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify({'tag': tagId, "project": projectId})
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Tag was deleted!")
+            });
+            
+            tags_up[i].remove()
+
+        })
+    }
+
+</script>
+
+{% endblock content %}
