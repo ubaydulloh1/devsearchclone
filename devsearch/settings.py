@@ -1,7 +1,7 @@
 from datetime import timedelta
 from pathlib import Path
 import os
-import django_heroku
+# import django_heroku
 
 
 
@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+coa5fsds&*mbsf=p)!u#zvbn2bt_opxq89fxurdd=4bp!k!y3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'devsearch-clone.herokuapp.com']
 
@@ -83,7 +83,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
 
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -119,27 +119,27 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'devsearch',
-#         "USER": 'postgres',
-#         'PASSWORD': "1111",
-#         'HOST': 'localhost',
-#         'PORT': 5432,
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dfg9jqu3gkr4ei',
-        "USER": 'maonwplohrfnqd',
-        'PASSWORD': "bd6763dc1b287730b1e82074663028c80fbb5a0c9679e7c1b1e75c092bd2a433",
-        'HOST': 'ec2-52-73-155-171.compute-1.amazonaws.com',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'devsearch',
+        "USER": 'postgres',
+        'PASSWORD': "1111",
+        'HOST': 'localhost',
         'PORT': 5432,
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'dfg9jqu3gkr4ei',
+#         "USER": 'maonwplohrfnqd',
+#         'PASSWORD': "bd6763dc1b287730b1e82074663028c80fbb5a0c9679e7c1b1e75c092bd2a433",
+#         'HOST': 'ec2-52-73-155-171.compute-1.amazonaws.com',
+#         'PORT': 5432,
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -194,15 +194,15 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/images/'
 
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
