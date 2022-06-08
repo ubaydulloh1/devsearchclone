@@ -19,7 +19,7 @@ SECRET_KEY = 'django-insecure-+coa5fsds&*mbsf=p)!u#zvbn2bt_opxq89fxurdd=4bp!k!y3
 # SECURITY WARNING: don't run with debug turned on in production!
 
 try:
-    from .settings_dev import DEBUG
+    from .settings_prod import DEBUG
 except:
     pass
 
@@ -127,7 +127,7 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 try:
-    from .settings_dev import DATABASES
+    from .settings_prod import DATABASES
 except:
     pass
 
