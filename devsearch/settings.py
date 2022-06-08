@@ -21,7 +21,6 @@ SECRET_KEY = 'django-insecure-+coa5fsds&*mbsf=p)!u#zvbn2bt_opxq89fxurdd=4bp!k!y3
 DEBUG = True
 
 
-
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'devsearchclone.herokuapp.com']
 
 
@@ -212,5 +211,5 @@ AWS_STORAGE_BUCKET_NAME = 'devsearchclone-bucket'
 
 django_heroku.settings(locals())
 
-if os.getcwd() == '/app':
-    DEBUG = False
+# if os.getcwd() == '/app':
+#     DEBUG = False
