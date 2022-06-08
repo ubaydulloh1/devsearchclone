@@ -120,27 +120,27 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'devsearch',
-        "USER": 'postgres',
-        'PASSWORD': "1111",
-        'HOST': 'localhost',
-        'PORT': 5432,
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'dfg9jqu3gkr4ei',
-#         "USER": 'maonwplohrfnqd',
-#         'PASSWORD': "bd6763dc1b287730b1e82074663028c80fbb5a0c9679e7c1b1e75c092bd2a433",
-#         'HOST': 'ec2-52-73-155-171.compute-1.amazonaws.com',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'devsearch',
+#         "USER": 'postgres',
+#         'PASSWORD': "1111",
+#         'HOST': 'localhost',
 #         'PORT': 5432,
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'devsearchclonedb',
+        "USER": 'postgres',
+        'PASSWORD': "unknown01",
+        'HOST': 'devsearchclonedb.cf1ea4lyvjya.ap-northeast-2.rds.amazonaws.com',
+        'PORT': 5432,
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
