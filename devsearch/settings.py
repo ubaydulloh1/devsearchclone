@@ -126,11 +126,11 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'devsearchclonedb',
-        "USER": 'postgres',
-        'PASSWORD': "unknown01",
-        'HOST': 'devsearchclonedb.cf1ea4lyvjya.ap-northeast-2.rds.amazonaws.com',
-        'PORT': 5432,
+        'NAME': os.environ.get('DB_NAME'),
+        "USER": os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
