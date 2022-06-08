@@ -17,7 +17,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+coa5fsds&*mbsf=p)!u#zvbn2bt_opxq89fxurdd=4bp!k!y3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+try:
+    from .settings_dev import DEBUG
+except:
+    pass
+
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'devsearchclone.herokuapp.com']
 
@@ -34,6 +40,7 @@ INSTALLED_APPS = [
 
     'corsheaders',
     "rest_framework",
+    'storages',
 
     'projects.apps.ProjectsConfig',
     'users.apps.UsersConfig',
@@ -120,27 +127,10 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'devsearch',
-#         "USER": 'postgres',
-#         'PASSWORD': "1111",
-#         'HOST': 'localhost',
-#         'PORT': 5432,
-#     }
-# }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'devsearchclonedb',
-        "USER": 'postgres',
-        'PASSWORD': "unknown01",
-        'HOST': 'devsearchclonedb.cf1ea4lyvjya.ap-northeast-2.rds.amazonaws.com',
-        'PORT': 5432,
-    }
-}
+try:
+    from .settings_dev import DATABASES
+except:
+    pass
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -210,5 +200,17 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_FILE_OVERWRITE = False
+
+AWS_ACCESS_KEY_ID = 'AKIA6EZM4O4A3A6ERYO4'
+AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_STORAGE_BUCKET_NAME = 'devsearchclone-bucket'
+
 
 django_heroku.settings(locals())
