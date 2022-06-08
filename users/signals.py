@@ -18,17 +18,17 @@ def profileCreate(sender, instance, created, **kwargs):
             username=user.username,
             email=user.email,
         )
+        profile.save()
+        # subject = "Welcome To DevSearch Platform!"
+        # message_body = "We are glad of you joined)."
 
-        subject = "Welcome To DevSearch Platform!"
-        message_body = "We are glad of you joined)."
-
-        send_mail(
-            subject,
-            message_body,
-            settings.EMAIL_HOST_USER,
-            [profile.email],
-            fail_silently=False,
-        )
+        # send_mail(
+        #     subject,
+        #     message_body,
+        #     settings.EMAIL_HOST_USER,
+        #     [profile.email],
+        #     fail_silently=False,
+        # )
 
 
 def updateAccount(sender, instance, created, **kwargs):

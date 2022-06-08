@@ -1,7 +1,8 @@
 from datetime import timedelta
 from pathlib import Path
 import os
-# import django_heroku
+import django_heroku
+import dj_database_url
 
 
 
@@ -16,9 +17,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+coa5fsds&*mbsf=p)!u#zvbn2bt_opxq89fxurdd=4bp!k!y3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'devsearch-clone.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'devsearchclone.herokuapp.com']
 
 
 # Application definition
@@ -31,11 +32,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'corsheaders',
+    "rest_framework",
+
     'projects.apps.ProjectsConfig',
     'users.apps.UsersConfig',
-
-    "rest_framework",
-    'corsheaders',
 ]
 
 
@@ -83,7 +84,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
 
-    # "whitenoise.middleware.WhiteNoiseMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -194,17 +195,20 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/images/'
 
 
-STATICFILES_DIRS = (
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-)
+]
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())
