@@ -18,10 +18,8 @@ SECRET_KEY = 'django-insecure-+coa5fsds&*mbsf=p)!u#zvbn2bt_opxq89fxurdd=4bp!k!y3
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-try:
-    from .settings_prod import DEBUG
-except:
-    pass
+DEBUG = True
+
 
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'devsearchclone.herokuapp.com']
@@ -213,3 +211,6 @@ AWS_STORAGE_BUCKET_NAME = 'devsearchclone-bucket'
 
 
 django_heroku.settings(locals())
+
+if os.getcwd() == '/app':
+    DEBUG = False
