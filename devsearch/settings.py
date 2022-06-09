@@ -14,11 +14,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+coa5fsds&*mbsf=p)!u#zvbn2bt_opxq89fxurdd=4bp!k!y3'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = False
+DEBUG = os.getenv('DEBUG')
 
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'devsearchclone.herokuapp.com']
@@ -126,11 +126,11 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        "USER": os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
+        'NAME': os.getenv('DB_NAME'),
+        "USER": os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
@@ -217,5 +217,5 @@ AWS_STORAGE_BUCKET_NAME = 'devsearchclone-bucket'
 
 django_heroku.settings(locals())
 
-if os.getcwd() == '/app':
-    DEBUG = False
+# if os.getcwd() == '/app':
+#     DEBUG = False
