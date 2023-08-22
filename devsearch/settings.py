@@ -176,8 +176,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "ubaydulloh1000@gmail.com"
-EMAIL_HOST_PASSWORD = "Ub@ydull04Email"
+EMAIL_HOST_USER = "dummy@gmail.com"
+EMAIL_HOST_PASSWORD = "dummy"
 
 
 # Static files (CSS, JavaScript, Images)
@@ -209,8 +209,8 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_FILE_OVERWRITE = False
 
-AWS_ACCESS_KEY_ID = 'AKIA6EZM4O4A3A6ERYO4'
-AWS_SECRET_ACCESS_KEY = 'xeGvhNK6L6LvwepigBCq13QtHS/NN/xYWQXGIcgW'
+AWS_ACCESS_KEY_ID = 'dummy'
+AWS_SECRET_ACCESS_KEY = 'dummy'
 
 AWS_STORAGE_BUCKET_NAME = 'devsearchclone-bucket'
 
